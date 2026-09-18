@@ -2,8 +2,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using RedisCacheDemo.Application.Abstractions.Caching;
+using RedisCacheDemo.Application.Abstractions.Persistence;
 using RedisCacheDemo.Infrastructure.Caching;
 using RedisCacheDemo.Infrastructure.Configuration;
+using RedisCacheDemo.Infrastructure.Persistence;
 using StackExchange.Redis;
 
 namespace RedisCacheDemo.Infrastructure.DependencyInjection;
@@ -28,6 +30,7 @@ public static class ServiceCollectionExtensions
         });
 
         services.AddSingleton<ICacheService, RedisCacheService>();
+        services.AddSingleton<IProductRepository, InMemoryProductRepository>();
 
         return services;
     }
