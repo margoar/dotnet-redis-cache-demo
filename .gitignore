@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Variables de entorno locales (el template versionado es .env.example)
+.env
+!.env.example
