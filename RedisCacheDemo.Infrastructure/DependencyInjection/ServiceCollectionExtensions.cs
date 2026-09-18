@@ -1,16 +1,18 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using StackExchange.Redis;
+using RedisCacheDemo.Application.Abstractions.Caching;
+using RedisCacheDemo.Infrastructure.Caching;
 using RedisCacheDemo.Infrastructure.Configuration;
+using StackExchange.Redis;
 
 namespace RedisCacheDemo.Infrastructure.DependencyInjection;
 
 public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddInfrastructure(
-        this IServiceCollection services,
-        IConfiguration configuration)
+    this IServiceCollection services,
+    IConfiguration configuration)
     {
         services.Configure<RedisOptions>(
             configuration.GetSection(RedisOptions.SectionName));
@@ -24,6 +26,8 @@ public static class ServiceCollectionExtensions
             return ConnectionMultiplexer.Connect(
                 redisOptions.ConnectionString);
         });
+
+        services.AddSingleton<ICacheService, RedisCacheService>();
 
         return services;
     }
