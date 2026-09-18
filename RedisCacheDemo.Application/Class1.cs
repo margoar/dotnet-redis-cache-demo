@@ -1,4 +1,4 @@
-﻿namespace RedisCacheDemo.Domain
+﻿namespace RedisCacheDemo.Application
 {
     public class Class1
     {
