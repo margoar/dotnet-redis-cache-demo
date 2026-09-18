@@ -1,4 +1,6 @@
+using RedisCacheDemo.Infrastructure.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddInfrastructure(builder.Configuration);
 
 // Add services to the container.
 
