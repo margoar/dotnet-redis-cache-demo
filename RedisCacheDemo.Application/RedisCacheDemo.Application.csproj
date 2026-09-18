@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Products\DTOs\" />
-    <Folder Include="Products\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RedisCacheDemo.Domain\RedisCacheDemo.Domain.csproj" />
   </ItemGroup>
 
